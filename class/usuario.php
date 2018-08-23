@@ -1,12 +1,12 @@
 <?php
-	class usuario{
+	class Usuario{
 		private $idusuario;
 		private$deslogin;
 		private $dessenha;
 		private $dtcadastro;
 
 		public function getIdusuario(){
-			return $this->idusuarios;
+			return $this->idusuario;
 		}
 		public function setIdusuario($value){
 			$this->idusuario=$value;
@@ -31,12 +31,12 @@
 		}
 		public function loadById($id){
 			$sql=new Sql();
-			$results=$sql->select("SELECT * FROM  tb_usuarios WHERE idusuario=::ID", array(
-				":ID=>$id"
+			$results=$sql->select("SELECT * FROM  tb_usuarios WHERE idusuarios=:ID", array(
+				":ID"=>$id
 			));
-			if(isset($results[0])){
+			if(count($results)>0){
 				$row=$results[0];
-				$this->setIdusuario($row['idusuario']);
+				$this->setIdusuario($row['idusuarios']);
 				$this->setDeslogin($row['deslogin']);
 				$this->setDessenha($row['dessenha']);
 				$this->setDtcadastro(new DateTime($row['dtcadastro']));
