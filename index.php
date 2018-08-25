@@ -18,7 +18,13 @@
 	//$usuario->login("juliana","123456");
 	//echo $usuario;
 
-	$aluno = new Usuario("aluno","aluno123");
-	$aluno->insert();
-	echo $aluno;
+	//Criando um novo usuario
+	//$aluno = new Usuario("aluno","aluno123");
+	//$aluno->insert();
+	//echo $aluno;
+
+	$usuario = new Usuario();
+	$usuario->loadById(10);
+	$usuario->update("professor","professor123");
+	echo $usuario;
 ?>
